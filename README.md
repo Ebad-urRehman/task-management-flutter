@@ -18,4 +18,4 @@ Upon clicking add button on 2nd screen we go to the tasks adding screen
 
 Here we can write tasks for different days, and upon revisting we have our tasks,(done by using provider state)
 
-App is not fully functional now
+add, and complete functionality added
