@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TasksListProvider extends ChangeNotifier {
   final todoTasks = [
@@ -7,16 +8,22 @@ class TasksListProvider extends ChangeNotifier {
     ['Got to College', 'On Nov 5 2024', 'completed'],
   ];
 
-  void addTodoItems(String task) {
+  void addTodoItems(String task, DateTime date) {
     if (task.isNotEmpty) {
       todoTasks.add([
         task,
-        'To be completed on date}',
+        'to do on ${DateFormat.yMMMd().format(date)}',
         'incomplete',
       ]);
       notifyListeners();
 
       print(todoTasks);
     }
+  }
+
+  void completeTask(index) {
+    todoTasks[index][2] = 'completed';
+    print(todoTasks);
+    notifyListeners();
   }
 }

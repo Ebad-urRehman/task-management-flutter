@@ -5,6 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
 final TextEditingController _taskAddingController = TextEditingController();
+DateTime? _selectedDate = DateTime.now();
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
@@ -20,7 +21,8 @@ class AddTaskScreen extends StatelessWidget {
               hoverColor: Colors.blue.withOpacity(0.5),
               tooltip: 'Add a New Task',
               onPressed: () {
-                dataProviderList.addTodoItems('String');
+                dataProviderList.addTodoItems(
+                    _taskAddingController.text, _selectedDate!);
               }),
           appBar: AppBar(title: const Text('To do App')),
           body: const AddTask(),
@@ -29,8 +31,6 @@ class AddTaskScreen extends StatelessWidget {
     );
   }
 }
-
-DateTime? _selectedDate = DateTime.now();
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
